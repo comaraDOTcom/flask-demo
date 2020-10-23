@@ -8,7 +8,7 @@ For an application, there are two possible architectures:
 layer(implementing business logic), data access layer (database).
 we are creating one monolith in one big bucket. It is not a good practice to directly 
 connect the fronted to backend. i.e. big bucket that contains all the components.
-_For example_** on the on the backend we require more optimisation for performance
+**_For example_** on the on the backend we require more optimisation for performance
 (not needed for the front end).
 
 
@@ -25,7 +25,7 @@ we can scale easily. However, you have to write one proper health check to monit
 the health of all your microservices (Haven't thought about this)
 
 ###What is an API?
- It is a set of clearly defined communication to always access your microservice. _e.g._**
+ It is a set of clearly defined communication to always access your microservice. **__e.g._**
  UBER started off using google maps when they first built their app. However due to costs,
  they switched to Mapbox (open-source) which is free). It was an easy switch for Uber
  to make. However, later on Google simplified its Maps API pricing and Uber could easily
