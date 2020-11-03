@@ -7,6 +7,6 @@ class FizzBuzzService:
             return 'Fizz'
 
         elif input_variable % 5 == 0:
-            return 'Buzz'
+            return 'Bizzare'
         else:
             return 'fail'
