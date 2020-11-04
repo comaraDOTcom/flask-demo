@@ -9,6 +9,8 @@ from flask_restful import Resource
 from fizzbuzz_service import FizzBuzzService
 
 # Adding comment from Atom git service
+
+
 class FizzBuzzController(Resource):
     def get(self, input_variable):
         return FizzBuzzService.validate(input_variable)
