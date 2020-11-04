@@ -1,25 +1,25 @@
 ## Flask API Demo
 Based off "RestAPI development with Python and Flask" given by [Rasim Sen](https://github.com/rasimsen/restful-api-with-database-with-python-flask)
-on 19/10/2020.  
+on 19/10/2020.
 
 For an application, there are two possible architectures:
 
 **Monolithic architecture:** (3 layer pattern - presentation/ui (front end), business
 layer(implementing business logic), data access layer (database)).
-We are creating one monolith in one big bucket. It is not a good practice to directly 
+We are creating one monolith in one big bucket. It is not a good practice to directly
 connect the fronted to backend. i.e. big bucket that contains all the components.
 **_For example_** on the on the backend we require more optimisation for performance
 (not needed for the front end).
 
 
 **Microservice architecture:** splits the backend into many smaller components. On the
-backend side we prefer not to have all components in the same folder ( **_i.e._** 
+backend side we prefer not to have all components in the same folder ( **_i.e._**
 user_profile, shopping cart etc) because each component has different dynamics. But it
 appears like they are together on the frontend..However on the back end, how it may work like so:
   * **_Search component_** might use elasticsearch as framework
   * **_Shopping cart_** might use NoSQL database
 
-Each microservice can have a different framework and different technology. Another 
+Each microservice can have a different framework and different technology. Another
 advantage is scalablility. If we were to put the app in a  kubernetes container
 we can scale easily. However, you have to write one proper health check to monitor
 the health of all your microservices (Haven't thought about this)
@@ -30,9 +30,9 @@ the health of all your microservices (Haven't thought about this)
  they switched to Mapbox (open-source) which is free. It was an easy switch for Uber
  to make. However, later on Google simplified its Maps API pricing and Uber could easily
  connect back to use it once they decided to.
- 
+
 ### REST API
-REST (representational state transfer) API has defined standard http methods:  
+REST (representational state transfer) API has defined standard http methods:
  *  **GET, POST, PUT, DELETE**
 
 ### Fizzbuzz problem
@@ -63,13 +63,13 @@ $ pip install Flask
 $ pip install Flask-RESTful
 $ pip freeze > .\requirements.txt
 $ deactivate
-$ 
+$
 ```
 
 #### 3. TDD - test driven development - unit tests
 According to TDD -> RED-GREEN-BLUE. Fail our unit test first, then implement our
- business case depending on criteria. We fail it at the beginning. As a developer (we 
- do so much copy and pasting that we don't want to copy and assume anything works. Start 
+ business case depending on criteria. We fail it at the beginning. As a developer (we
+ do so much copy and pasting that we don't want to copy and assume anything works. Start
  off from failure and build from there) then by doing RGB, we will be sure our methods
  work when they eventually pass. Unit testing in **fizzbuzz_service_spec.py**.
 ```python
@@ -98,7 +98,7 @@ app.run(port=5000, debug=True)
 #### 6. Build router controller
 Controllers are routers and define how to deal with incoming requests. The http get method
 must be defined.
-```python 
+```python
 from flask_restful import Resource
 from fizzbuzz_service import FizzBuzzService
 
@@ -114,7 +114,7 @@ python app.py
 ```
 You get the following message
 ```zsh
-* Running on http://127.0.0.1:5000/ 
+* Running on http://127.0.0.1:5000/
 ```
 ##### Check end-to-end integration with command line.
 ```zsh
@@ -123,7 +123,7 @@ curl --location --request GET 'http://127.0.0.1:5000/fizzbuzz/validate/96'
 Returns Fizz.
 ##### Check end-to-end integration with Postman
 Running Postman off the desktop client and making a GET request at:
-`http://127.0.0.1:5000/fizzbuzz/validate/<number>` will return the request. 
+`http://127.0.0.1:5000/fizzbuzz/validate/<number>` will return the request.
 
 #### 8. Commit local changes to github (initialising repo locally)
 ```zsh
@@ -132,4 +132,9 @@ $ git add .
 $ git commit -m "First push to github"
 $ git remote add origin https://github.com/comaraDOTcom/flask-demo.git
 $ git push -u origin master
+```
+
+To install the atom packages on a new machine run
+```zsh
+$ apm install --packages-file ~/.atom/package.list
 ```
